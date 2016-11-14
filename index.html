@@ -11,16 +11,28 @@
 			position: relative;
 		}
 		body{
-			background-image: url(img/3fa82a1992f4fb90a09d8b141655093c.jpg);
-			background-size:100% ;
+			margin: 0;
+			padding: 0;
+
+			background-image: url(img/qp.jpg);
+		}
+		#bj{
+			position: absolute;
+			top:0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-image: url(img/qp.jpg);
+			background-repeat: no-repeat;
+			background-size: 100%;
 		}
 		#canvas2{
 			display: block;
-
 			position: absolute;
 			top: 20px;
 			left: 20px;
-						background-image: url(img/bp1.png);
+			background-image: url(img/bp1.png);
+			background-size: 100%;
 			}
 		
 		#canvas3{
@@ -118,7 +130,7 @@
 			position:fixed;
 			width: 200px;
 			height:50px;
-			background: #000;	
+
 			bottom:0;
 			margin: auto;
 			text-align: center;
@@ -129,7 +141,7 @@
 			color:#000;
 			cursor:pointer;
 			font-weight: bold;
-			background-image: url(img/qp.jpg);
+/*			background-image: url(img/qp.jpg);*/
 		}
 		.delect{
 			width:30px;
@@ -147,69 +159,89 @@
 		    background-image: url(img/qp.jpg);
 		}
 		.chioce{
-			width:200px;
-			height:180px;			
+
 			position:fixed;
-			top:382px;
-			
-			left:0px;
+			top:100px;			
+			right:0px;
 			margin:auto;
 			z-index:1000;
 			/*background: #fff;*/
-			background-image: url(img/qp.jpg);
+			/*background-image: url(img/qp.jpg);*/
 			background-size:100%
 		}
 		.chioce .ss{
+			position:absolute;
+			top: 150px;
+			left: -100px;
 			width:200px;
 			font-size:30px;
 			font-weight: bold;
 			cursor:pointer;
 		}
 		.chioce .ai{
-			width:200px;
-			height:50px;
+			position:absolute;
+			top: 200px;
+			left: -50px;		
 			line-height:50px;
 			text-align:center;
 			font-size:30px;
 			font-weight: bold;
 			cursor:pointer;
+			width:200px;
+			height:50px;
+			border-radius: 50%;
+			background: #e66c22;
 		}
 		.chioce .normal{
-			width:200px;
-			height:50px;
+			position:absolute;
+			top: 280px;
+			left: -50px;
 			line-height:50px;
 			text-align:center;
 			font-weight: bold;
 			font-size:30px;
 			cursor:pointer;
+			width:200px;
+			height:50px;
+			border-radius: 50%;
+			background: #e66c22;
 		}
 		.chioce .cxks{
-			width:200px;
-			height:50px;
+			top: 360px;
+			left: -50px;		
 			line-height:50px;
 			text-align:center;
 			font-weight: bold;
 			font-size:30px;
 			cursor:pointer;
+			width:200px;
+			height:50px;
+			border-radius: 50%;
+			background: #e66c22;
 		}
 		.color{
 			color:red;
 		}
-
+		.hlwzq{
+			position: fixed;
+			top: 50px;
+			right: 50px;
+		}
 			
 	</style>
 	<body>
+		<div id='bj'></div>
 			<audio src="097.wav" id='audio1'></audio>
 			<audio src="098.wav" id='audio2'></audio>
 			<canvas id="canvas" width="600" height="600"></canvas>
-			<canvas id="canvas2" width="300" height="300"></canvas>
-			<canvas id="canvas3" width="300" height="300"></canvas>
+			<canvas id="canvas2" width="200" height="200"></canvas>
+			<canvas id="canvas3" width="200" height="200"></canvas>
 			 <div class="box">
 		    	<div class="delect">
 		    		×
 		    	</div>
 		    </div>
-		    <div class="look">查看棋谱</div>
+
 		    <div class="info">
 		    	<div id="text">
 		    		<span>赢</span>
@@ -220,6 +252,9 @@
 		    	<div class="button cancal">
 		    		退出
 		    	</div>
+		    </div>
+		    <div class='hlwzq'>
+		    	欢乐五子棋
 		    </div>
 		    <div class="chioce">
 		    	<div class='ss'>
@@ -234,6 +269,7 @@
 		    	<div class='cxks'>
 		    		重新开始
 		    	</div>
+		  	  <div class="look">查看棋谱</div>
 		    </div>
 		
 	</body>

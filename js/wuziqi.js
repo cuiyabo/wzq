@@ -357,6 +357,7 @@
         $(".look").on("click",function(){
         	manual()
         	$(".box").addClass("activea")
+        	        		circledy();
         })
        
         //去除棋谱谱
@@ -368,6 +369,7 @@
         		var x=parseInt(k.split("_")[0]);
         		var y=parseInt(k.split("_")[1]);
         		luozi(x,y,qizi[k])
+        		circledy();
         	}
         })        
         
@@ -411,9 +413,9 @@
 		function wz1(color){
 			ctxa.save();
 			ctxa.beginPath();
-			ctxa.translate(150,150);
+			ctxa.translate(100,100);
 			ctxa.font='30px/1  微软雅黑';
-			ctxa.fillStyle='#000';
+			ctxa.fillStyle='#fff';
 			ctxa.textAlign='center';
 			ctxa.textBaseline='middle';
 			ctxa.fillText('计         时',0,0);			
@@ -426,13 +428,13 @@
 			ctxa.save()		
 			ctxa.beginPath();			
 
-			ctxa.translate(150,150)
+			ctxa.translate(99,99)
 			
-			ctxa.arc(0,0,20,0,Math.PI*2)
-			ctxa.moveTo(0,20)
+			ctxa.arc(0,0,10,0,Math.PI*2)
+			ctxa.moveTo(0,10)
 			ctxa.lineTo(0,40)
-			ctxa.moveTo(0,-20)
-			ctxa.lineTo(0,-120)
+			ctxa.moveTo(0,-10)
+			ctxa.lineTo(0,-70)
 			ctxa.closePath();
 			ctxa.stroke()
 			ctxa.restore();
