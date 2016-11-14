@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+		<script src='js/jquery.js'></script>
+		<script src="js/wuziqi.js"></script>
+		<style>
+		*{
+			position: relative;
+		}
+		body{
+			background-image: url(img/3fa82a1992f4fb90a09d8b141655093c.jpg);
+			background-size:100% ;
+		}
+		#canvas2{
+			display: block;
+
+			position: absolute;
+			top: 20px;
+			left: 20px;
+						background-image: url(img/bp1.png);
+			}
+		
+		#canvas3{
+			display: block;
+
+			position: absolute;
+			top: 20px;
+			right: 20px;
+
+		}
+		#canvas{
+				display: block;
+				margin: 0 auto;
+				border: 1px solid #000;
+				background-image: url(img/qp.jpg);
+				cursor: pointer;
+			}
+		.box{
+			width:500px;
+			height:500px;
+			background:#fff;
+			box-shadow:0 0 0 1000px rgba(0,0,0,0.7);
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin: auto;
+			z-index:200;			
+			transition:all 1s ease;
+			transform:scale(0,0);
+			background-image: url(img/qp.jpg);
+		}
+		.box img{
+			width:100%;
+		}
+		.box a{
+			width:100%;
+			height:100%;
+			position:absolute;
+			top:0;
+			left:0;
+			z-index:20;
+		}
+		.info{
+			width:400px;
+			height:300px;
+			background:#fff;			
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin: auto;					
+			transition:all 1s ease;
+			transform:translate3d(0,-1000px,0);		
+			background-image: url(img/b21502f8883de34032e92672873deb5c.jpg);	
+			background-size: 100%;
+		}
+		.info #text{
+			width:100%;
+			height:100px;
+			line-height:100px;
+			text-align:center;
+			font-size:30px;
+			font-weight: bold;
+			color:#000;
+		}
+		.info .again{
+			width:100%;
+			height:100px;
+			line-height:100px;
+			text-align:center;
+			font-size:30px;
+			font-weight: bold;
+			color:#000;
+		}
+		.info .cancal{
+			width:100%;
+			height:100px;
+			line-height:100px;
+			text-align:center;
+			font-size:30px;
+			font-weight: bold;
+			color:#000;
+		}
+		
+		.active{
+			transform:translate3d(0,0,0);
+		}
+		.activea{
+			transform:scale(1,1)
+		}
+		.look{
+			position:fixed;
+			width: 200px;
+			height:50px;
+			background: #000;	
+			bottom:0;
+			margin: auto;
+			text-align: center;
+			font-size:30px;
+			left:0;
+			z-index:100;
+			line-height: 50px;
+			color:#000;
+			cursor:pointer;
+			font-weight: bold;
+			background-image: url(img/qp.jpg);
+		}
+		.delect{
+			width:30px;
+			height:30px;
+			background:#fff;
+			border-radius:50%;
+			position:absolute;
+			right:-15px;
+		    top:-15px;
+		    font-size:20px;
+		    color:#000;
+		    text-align:center;
+		    line-height:30px;
+		    cursor:pointer; 
+		    background-image: url(img/qp.jpg);
+		}
+		.chioce{
+			width:200px;
+			height:180px;			
+			position:fixed;
+			top:382px;
+			
+			left:0px;
+			margin:auto;
+			z-index:1000;
+			/*background: #fff;*/
+			background-image: url(img/qp.jpg);
+			background-size:100%
+		}
+		.chioce .ss{
+			width:200px;
+			font-size:30px;
+			font-weight: bold;
+			cursor:pointer;
+		}
+		.chioce .ai{
+			width:200px;
+			height:50px;
+			line-height:50px;
+			text-align:center;
+			font-size:30px;
+			font-weight: bold;
+			cursor:pointer;
+		}
+		.chioce .normal{
+			width:200px;
+			height:50px;
+			line-height:50px;
+			text-align:center;
+			font-weight: bold;
+			font-size:30px;
+			cursor:pointer;
+		}
+		.chioce .cxks{
+			width:200px;
+			height:50px;
+			line-height:50px;
+			text-align:center;
+			font-weight: bold;
+			font-size:30px;
+			cursor:pointer;
+		}
+		.color{
+			color:red;
+		}
+
+			
+	</style>
+	<body>
+			<audio src="097.wav" id='audio1'></audio>
+			<audio src="098.wav" id='audio2'></audio>
+			<canvas id="canvas" width="600" height="600"></canvas>
+			<canvas id="canvas2" width="300" height="300"></canvas>
+			<canvas id="canvas3" width="300" height="300"></canvas>
+			 <div class="box">
+		    	<div class="delect">
+		    		×
+		    	</div>
+		    </div>
+		    <div class="look">查看棋谱</div>
+		    <div class="info">
+		    	<div id="text">
+		    		<span>赢</span>
+		    	</div>
+		    	<div class="button again">
+		    	          再来一局
+		    	</div>
+		    	<div class="button cancal">
+		    		退出
+		    	</div>
+		    </div>
+		    <div class="chioce">
+		    	<div class='ss'>
+		    		赛事选择:
+		    	</div>
+		    	<div class="ai">
+		    		人机对战
+		    	</div>
+		    	<div class="normal color">
+		    		人人对战
+		    	</div>
+		    	<div class='cxks'>
+		    		重新开始
+		    	</div>
+		    </div>
+		
+	</body>
+	
+</html>
